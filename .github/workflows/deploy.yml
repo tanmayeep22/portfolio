@@ -20,14 +20,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./portfolio # <-- Point this to your nested folder name
 
       - name: Build
         run: npm run build
-        working-directory: ./portfolio # <-- Point this to your nested folder name
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./portfolio/dist # <-- Make sure this points to the built dist folder inside your subfolder
+          publish_dir: ./dist
